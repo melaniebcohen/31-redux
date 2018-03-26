@@ -1,0 +1,14 @@
+@import '../../style/main.scss';
+
+.category-form {
+  margin: 20px 25px 0px 25px;
+  padding-bottom: 5px;
+
+  input {
+    width: 65%
+  }
+  button {
+    width: 25%;
+    margin-left: 25px;
+  }
+}

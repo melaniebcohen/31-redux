@@ -1,0 +1,35 @@
+@import '../../style/main.scss';
+
+.category-item {
+  margin: 20px 25px 0 25px;
+  padding: 20px 0 20px 0;
+  border-top: 1.5px solid $tertiary-color;
+
+  h3 {
+    color: $primary-color;
+    display: inline;
+  }
+
+  input {
+    float: right;
+    border: 1.5px solid $tertiary-color;
+    width: 20%;
+    padding: 4px;
+  }
+
+  form {
+    display: inline;
+  };
+
+  .form-button {
+    width: 25%;
+    padding: 4px;
+    float: right;
+    margin-right: 5px;
+  }
+
+  .delete-button {
+    margin-top: 10px;
+    display: block;
+  }
+}

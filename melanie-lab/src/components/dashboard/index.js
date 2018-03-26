@@ -1,20 +1,19 @@
 'use strict';
 
+import './_dashboard.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
 import { categoryCreate, categoryUpdate, categoryDelete } from '../../action/category.js';
+import NavBar from '../navbar';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 
 class DashboardContainer extends Component {
-  // componentDidMount() {
-  //   this.props.categoryCreate({ title: 'test category here' });
-  // }
-
   render() {
     return (
       <main className='dashboard-container'>
+        <NavBar />
         <h2>create a new category.</h2>
 
         <CategoryForm
@@ -24,13 +23,14 @@ class DashboardContainer extends Component {
         />
 
         {this.props.categories.map(item => 
-          <div key={item.id}>
-            <CategoryItem 
-              title={item.title}
-              buttonText='delete category'
-              onClick={this.props.categoryDelete}
-            />
-          </div>
+          <CategoryItem
+            key={item.id}
+            category={item}
+            title={item.title}
+            buttonText='delete category'
+            categoryDelete={this.props.categoryDelete}
+            // onComplete={this.props.categoryUpdate}
+          />
         )}
       </main>
     );

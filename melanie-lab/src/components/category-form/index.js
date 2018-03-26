@@ -1,13 +1,12 @@
 'use strict';
 
+import './_category-form.scss';
 import React, { Component } from 'react';
 
 export default class CategoryForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
-      title: props.category ? props.category.title : '',
-    };
+    this.state = this.props.category ? this.props.category : { title: '' },
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -20,7 +19,7 @@ export default class CategoryForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onComplete(Object.assign({}, this.state));
+    this.props.onComplete(this.state);
   }
 
   render() {
@@ -34,7 +33,7 @@ export default class CategoryForm extends Component {
           onChange={this.handleChange}
         />
   
-        <button type='submit'>{this.props.buttonText}</button>
+        <button className='form-button' type='submit'>{this.props.buttonText}</button>
       </form>
     );
   }

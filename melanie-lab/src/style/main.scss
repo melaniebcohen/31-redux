@@ -1,0 +1,37 @@
+@import 'reset';
+
+$font-stack: Avenir, sans-serif;
+$primary-color: #4c4c4c;
+$secondary-color: #e0e0e0;
+$tertiary-color: #999;
+
+body {
+  font: 100% $font-stack;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#root {
+  background: $secondary-color;
+}
+input {
+  border: 1.5px $primary-color solid;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: $font-stack;
+}
+
+button {
+  border: none;
+  background: $primary-color;
+  color: $secondary-color;
+  border-radius: 4px;
+  padding: 9.5px 12px 10px 12px;
+  font-family: $font-stack;
+  font-size: 14px;
+}
+
+footer {
+  background: $tertiary-color;
+  height: 75px;
+}
