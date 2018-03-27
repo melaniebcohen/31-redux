@@ -8,33 +8,28 @@ import CategoryForm from '../category-form';
 
 class CategoryItem extends Component {
   render() {
+    let { category, categoryUpdate, categoryDelete } = this.props;
+
     return (
       <div className='category-item'>
-        <h3>{this.props.title}</h3>
+        <h3>{category.title}</h3>
+        <button onClick={() => categoryDelete(category)}>X</button>
 
         <CategoryForm
-          category={this.props.category}
+          category={category}
           placeholderText={this.props.title}
-          placeholderBudget={'$' + this.props.category.budget}
+          placeholderBudget={'$' + category.budget}
           buttonText='update category'
-          onComplete={this.props.categoryUpdate}
+          onComplete={categoryUpdate}
         />
-
-        <button className='delete-button' type='submit' onClick={() => this.props.categoryDelete(this.props.category)}>{this.props.buttonText}</button>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return { categories: state };
-};
+const mapDispatchToProps = dispatch => ({
+  categoryUpdate: category => dispatch(categoryUpdate(category)),
+  categoryDelete: category => dispatch(categoryDelete(category)),
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    categoryUpdate: category => dispatch(categoryUpdate(category)),
-    categoryDelete: category => dispatch(categoryDelete(category)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
+export default connect(null, mapDispatchToProps)(CategoryItem);

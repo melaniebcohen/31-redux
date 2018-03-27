@@ -1,20 +1,14 @@
 'use strict';
 
-import './_category-form.scss';
+// import './_initial-budget-form.scss';
 import React, { Component } from 'react';
 
-export default class CategoryForm extends Component {
+export default class InitalBudgetForm extends Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category ? this.props.category : { title: '', budget: '' },
+    this.state = { budget: '' },
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentWillReceiveProps(props) {
-    if (props.category) {
-      this.setState(props.category);
-    }
   }
 
   handleChange(e) {
@@ -26,20 +20,16 @@ export default class CategoryForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(this.state);
-
-    if (!this.props.category) {
-      this.setState({ title: '' });
-    }
   }
 
   render() {
     return (
-      <form className='category-form' onSubmit={this.handleSubmit}>
+      <form className='budget-form' onSubmit={this.handleSubmit}>
         <input
-          name='title'
-          type='text'
+          name='budget'
+          type='number'
           placeholder={this.props.placeholderText}
-          value={this.state.title}
+          value={this.state.budget}
           onChange={this.handleChange}
         />
 

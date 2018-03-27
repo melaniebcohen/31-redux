@@ -4,8 +4,12 @@ import './_dashboard.scss';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
-import { categoryCreate, categoryUpdate, categoryDelete } from '../../action/category.js';
+import { categoryCreate as categoryActionCreate } from '../../action/category.js';
+import { budgetCreate as budgetActionCreate } from '../../action/budget.js';
+
 import NavBar from '../navbar';
+import InitialBudgetForm from '../initial-budget-form';
+import BudgetAmounts from '../budget-amounts';
 import CategoryForm from '../category-form';
 import CategoryItem from '../category-item';
 
@@ -14,12 +18,26 @@ class DashboardContainer extends Component {
     return (
       <main className='dashboard-container'>
         <NavBar />
+
+        {this.props.budget === '' ? 
+          <InitialBudgetForm 
+            buttonText='set budget'
+            placeholderText='set total budget'
+            onComplete={this.props.budgetCreate}
+          />
+          : undefined}
+        
+        {this.props.budget !== '' ? 
+          <BudgetAmounts
+            initial={this.props.budget}
+          />
+          : undefined}
+        
         <h2>create a new category.</h2>
 
         <CategoryForm
           buttonText='create category'
           placeholderText='create a new category and track your expenses'
-          placeholderBudget='enter the budget for your new category'
           onComplete={this.props.categoryCreate}
         />
 
@@ -27,8 +45,7 @@ class DashboardContainer extends Component {
           <div key={item.id}>
             <CategoryItem
               category={item}
-              title={item.title}
-              buttonText='delete category'
+              key={item.id}
             />
           </div>
         )}
@@ -38,14 +55,18 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { categories: state };
+  // console.log(state.budget)
+  return { 
+    budget: state.budget,
+    categories: state.categories,
+  };
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    categoryCreate: category => dispatch(categoryCreate(category)),
-    categoryUpdate: category => dispatch(categoryUpdate(category)),
-    categoryDelete: category => dispatch(categoryDelete(category)),
+  // console.log(budget, category)
+  return { 
+    budgetCreate: budget => dispatch(budgetActionCreate(budget)),
+    categoryCreate: category => dispatch(categoryActionCreate(category)),
   };
 };
 

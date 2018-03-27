@@ -15,11 +15,11 @@
     "res": true,
     "next": true
   },
-  "extends": "eslint:recommended",
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "experimentalObjectRestSpread": true
     }
   },
   "rules": {

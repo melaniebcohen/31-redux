@@ -28,7 +28,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  devtool: production ? undefined : 'eval',
+  devtool: production ? undefined : 'cheap-module-eval-source-map',
   output: {
     path: `${__dirname}/build`,
     publicPath: process.env.CDN_URL,
