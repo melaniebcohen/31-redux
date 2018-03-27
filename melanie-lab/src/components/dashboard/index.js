@@ -19,6 +19,7 @@ class DashboardContainer extends Component {
         <CategoryForm
           buttonText='create category'
           placeholderText='create a new category and track your expenses'
+          placeholderBudget='enter the budget for your new category'
           onComplete={this.props.categoryCreate}
         />
 
@@ -29,7 +30,6 @@ class DashboardContainer extends Component {
             title={item.title}
             buttonText='delete category'
             categoryDelete={this.props.categoryDelete}
-            // onComplete={this.props.categoryUpdate}
           />
         )}
       </main>
