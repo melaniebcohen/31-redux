@@ -55,7 +55,6 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state.budget)
   return { 
     budget: state.budget,
     categories: state.categories,
@@ -63,7 +62,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  // console.log(budget, category)
   return { 
     budgetCreate: budget => dispatch(budgetActionCreate(budget)),
     categoryCreate: category => dispatch(categoryActionCreate(category)),

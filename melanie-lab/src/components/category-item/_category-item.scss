@@ -8,6 +8,7 @@
   h3 {
     color: $primary-color;
     display: inline;
+    padding-right: 10px;
   }
 
   input {
@@ -24,12 +25,11 @@
   .form-button {
     width: 25%;
     padding: 4px;
-    float: right;
     margin-right: 5px;
   }
 
   .delete-button {
     margin-top: 10px;
-    display: block;
+    display: inline;
   }
 }
