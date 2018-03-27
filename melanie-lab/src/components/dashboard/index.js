@@ -23,14 +23,14 @@ class DashboardContainer extends Component {
           onComplete={this.props.categoryCreate}
         />
 
-        {this.props.categories.map(item => 
-          <CategoryItem
-            key={item.id}
-            category={item}
-            title={item.title}
-            buttonText='delete category'
-            categoryDelete={this.props.categoryDelete}
-          />
+        {this.props.categories.map(item =>
+          <div key={item.id}>
+            <CategoryItem
+              category={item}
+              title={item.title}
+              buttonText='delete category'
+            />
+          </div>
         )}
       </main>
     );
@@ -38,9 +38,7 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return {
-    categories: state,
-  };
+  return { categories: state };
 };
 
 const mapDispatchToProps = dispatch => {

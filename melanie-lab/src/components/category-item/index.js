@@ -3,7 +3,7 @@
 import './_category-item.scss';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { categoryUpdate } from '../../action/category.js';
+import { categoryDelete, categoryUpdate } from '../../action/category.js';
 import CategoryForm from '../category-form';
 
 class CategoryItem extends Component {
@@ -31,7 +31,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return { categoryUpdate: category => dispatch(categoryUpdate(category)) };
+  return {
+    categoryUpdate: category => dispatch(categoryUpdate(category)),
+    categoryDelete: category => dispatch(categoryDelete(category)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
