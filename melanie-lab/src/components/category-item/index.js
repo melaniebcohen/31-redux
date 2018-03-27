@@ -32,7 +32,14 @@ class CategoryItem extends Component {
           placeholderBudget='$ expense budget...'
           buttonText='add expense'
           onComplete={expenseCreate}
-        />          
+        />
+        
+        {/* RENDER EXPENSE ITEM HERE */}
+        {/* {this.props.expenses.map(item =>
+          <div key={item.id}>
+            <p>{item.title}</p>
+          </div>
+        )} */}
       </div>
     );
   }

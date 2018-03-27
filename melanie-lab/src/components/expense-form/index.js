@@ -1,7 +1,5 @@
 /*
-should have a button that will delete the expense from the app state (onClick)
-should display the name and price of the component
-should display an <ExpenseForm /> that will enable the user to update the expense in the app state
+should support an expense prop that will both set the intial form state, and update the state in the hook on componentWillReceiveProps()
 */
 
 'use strict';
@@ -28,7 +26,6 @@ export default class ExpenseForm extends Component {
   }
 
   handleSubmit(e) {
-    console.log(this.props)
     e.preventDefault();
     this.props.onComplete(this.state);
   }

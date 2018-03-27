@@ -13,7 +13,9 @@ export default (state=initialState, action) => {
   case 'EXPENSE_CREATE':
     let { categoryId } = payload;
     let categoryExpenses = state[categoryId];
-    return {...state, [categoryId]: [...categoryExpenses, payload]};
+    return {...state, [categoryId]: [payload]};
+    // return {...state, payload};
+
   default:
     return state;
   }
