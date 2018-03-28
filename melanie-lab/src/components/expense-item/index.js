@@ -7,27 +7,35 @@ should display the name and price of the component
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { expenseDelete } from '../../action/expense.js';
 
+import { expenseUpdate, expenseDelete } from '../../action/expense.js';
 import ExpenseForm from '../expense-form';
 
 class ExpenseItem extends Component {
   render() {
-    let { expense, expenseDelete } = this.props;
+    let { expenses, expenseDelete, expenseUpdate } = this.props;
     return (
-      <div className='expense-item'>
-        <h3>{expense.title}</h3>
-        <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
-        {/* DELETE NOT WORKING YET */}
-        
-        {/* RENDER EXPENSE FORM HERE FOR UPDATING */}
-      </div>
+      <ul className='expense-list'>
+        { expenses.map(expense => 
+          <li className='expense-item' key={expense}>
+            <h3>{expense.title}</h3>
+            <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
+
+            <ExpenseForm
+              expense={expense}
+              buttonText='update'
+              onComplete={expenseUpdate}
+            />
+          </li>
+        )}
+      </ul>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
   expenseDelete: expense => dispatch(expenseDelete(expense)),
+  expenseUpdate: expense => dispatch(expenseUpdate(expense)),
 });
 
 export default connect(null, mapDispatchToProps)(ExpenseItem);

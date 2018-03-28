@@ -34,17 +34,21 @@ export default class CategoryForm extends Component {
 
   render() {
     return (
-      <form className='category-form' onSubmit={this.handleSubmit}>
-        <input
-          name='title'
-          type='text'
-          placeholder={this.props.placeholderText}
-          value={this.state.title}
-          onChange={this.handleChange}
-        />
+      <div>
+        <h2>create a new category.</h2>
 
-        <button className='form-button' type='submit'>{this.props.buttonText}</button>
-      </form>
+        <form className='category-form' onSubmit={this.handleSubmit}>
+          <input
+            name='title'
+            type='text'
+            placeholder={this.props.placeholderText}
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+
+          <button className='form-button' type='submit'>{this.props.buttonText}</button>
+        </form>
+      </div>
     );
   }
 }

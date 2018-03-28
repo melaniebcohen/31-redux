@@ -1,11 +1,12 @@
 'use strict';
 
 import './_dashboard.scss';
-import { connect } from 'react-redux';
-import React, { Component } from 'react';
 
-import { categoryCreate as categoryActionCreate } from '../../action/category.js';
-import { budgetCreate as budgetActionCreate } from '../../action/budget.js';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { categoryCreate } from '../../action/category.js';
+import { budgetCreate } from '../../action/budget.js';
 
 import NavBar from '../navbar';
 import InitialBudgetForm from '../initial-budget-form';
@@ -15,6 +16,8 @@ import CategoryItem from '../category-item';
 
 class DashboardContainer extends Component {
   render() {
+    let { budget, budgetCreate, categoryCreate, categories, expenses } = this.props;
+
     return (
       <main className='dashboard-container'>
         <NavBar />
@@ -23,31 +26,28 @@ class DashboardContainer extends Component {
           <InitialBudgetForm 
             buttonText='set budget'
             placeholderText='set total budget'
-            onComplete={this.props.budgetCreate}
+            onComplete={budgetCreate}
           />
           : undefined}
         
         {this.props.budget !== '' ? 
           <BudgetAmounts
-            initial={this.props.budget}
+            initial={budget}
           />
           : undefined}
         
-        <h2>create a new category.</h2>
-
         <CategoryForm
           buttonText='create category'
           placeholderText='create a new category and track your expenses'
-          onComplete={this.props.categoryCreate}
+          onComplete={categoryCreate}
         />
 
-        {this.props.categories.map(item =>
-          <div key={item.id}>
-            <CategoryItem
-              category={item}
-              key={item.id}
-            />
-          </div>
+        {categories.map(item =>
+          <CategoryItem
+            key={item.id}
+            category={item}
+            expenses={expenses}
+          />
         )}
       </main>
     );
@@ -58,13 +58,14 @@ const mapStateToProps = state => {
   return { 
     budget: state.budget,
     categories: state.categories,
+    expenses: state.expenses,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return { 
-    budgetCreate: budget => dispatch(budgetActionCreate(budget)),
-    categoryCreate: category => dispatch(categoryActionCreate(category)),
+    budgetCreate: budget => dispatch(budgetCreate(budget)),
+    categoryCreate: category => dispatch(categoryCreate(category)),
   };
 };
 

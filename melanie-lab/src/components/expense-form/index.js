@@ -10,13 +10,23 @@ import React, { Component } from 'react';
 export default class ExpenseForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      title: '',
+    this.state = props.expense ? {...props.expense} : { 
+      title: '', 
       budget: '',
-      categoryId: this.props.category.id,
+      categoryId: props.categoryId,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expense) {
+      this.setState({...nextProps.expense});
+    }
+
+    if (nextProps.categoryId) {
+      this.setState({ categoryId: nextProps.categoryId });
+    }
   }
 
   handleChange(e) {
@@ -28,6 +38,13 @@ export default class ExpenseForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.onComplete(this.state);
+
+    // if (!this.props.expense) {
+    //   this.setState({
+    //     title: '', 
+    //     budget: '',
+    //   });
+    // }
   }
 
   render() {
