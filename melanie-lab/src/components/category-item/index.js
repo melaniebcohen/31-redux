@@ -8,10 +8,12 @@ import { expenseCreate } from '../../action/expense.js';
 
 import CategoryForm from '../category-form';
 import ExpenseForm from '../expense-form';
+import ExpenseItem from '../expense-item';
 
 class CategoryItem extends Component {
   render() {
-    let { category, categoryUpdate, categoryDelete, expenseCreate } = this.props;
+    let catId = this.props.category.id;
+    let { category, categoryUpdate, categoryDelete, expenseCreate, expense } = this.props;
 
     return (
       <div className='category-item'>
@@ -35,11 +37,14 @@ class CategoryItem extends Component {
         />
         
         {/* RENDER EXPENSE ITEM HERE */}
-        {/* {this.props.expenses.map(item =>
+        {this.props.expenses[catId].map(item =>
           <div key={item.id}>
-            <p>{item.title}</p>
+            <ExpenseItem 
+              expense={item}
+            />
           </div>
-        )} */}
+        )}
+
       </div>
     );
   }

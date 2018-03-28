@@ -14,13 +14,15 @@ import ExpenseForm from '../expense-form';
 class ExpenseItem extends Component {
   render() {
     let { expense, expenseDelete } = this.props;
-
-    <div className='expense-item'>
-      <h3>{expense.title}</h3>
-      <button className='delete-button' onClick={() => expenseDelete(category)}>X</button>
-
-      {/* RENDER EXPENSE FORM HERE FOR UPDATING */}
-    </div>
+    return (
+      <div className='expense-item'>
+        <h3>{expense.title}</h3>
+        <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
+        {/* DELETE NOT WORKING YET */}
+        
+        {/* RENDER EXPENSE FORM HERE FOR UPDATING */}
+      </div>
+    );
   }
 }
 

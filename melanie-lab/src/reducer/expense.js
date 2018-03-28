@@ -13,9 +13,10 @@ export default (state=initialState, action) => {
   case 'EXPENSE_CREATE':
     let { categoryId } = payload;
     let categoryExpenses = state[categoryId];
-    return {...state, [categoryId]: [payload]};
-    // return {...state, payload};
-
+    return {...state, [categoryId]: [...categoryExpenses, payload]};
+  case 'EXPENSE_DELETE':
+    // DELETE NOT WORKING YET
+    // return state.filter(expense => expense.id !== payload.id);
   default:
     return state;
   }
