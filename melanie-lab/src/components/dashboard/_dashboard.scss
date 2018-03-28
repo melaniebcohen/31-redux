@@ -1,0 +1,9 @@
+@import '../../style/main.scss';
+
+.dashboard-container {
+  h2 {
+    display: block;
+    color: $primary-color;
+    margin: 0 0 12px 40px;
+  }
+}

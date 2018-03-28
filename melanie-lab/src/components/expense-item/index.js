@@ -19,6 +19,7 @@ class ExpenseItem extends Component {
         { expenses.map(expense => 
           <li className='expense-item' key={expense}>
             <h3>{expense.title}</h3>
+            <h3>${expense.budget}</h3>
             <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
 
             <ExpenseForm

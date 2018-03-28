@@ -35,8 +35,6 @@ export default class CategoryForm extends Component {
   render() {
     return (
       <div>
-        <h2>create a new category.</h2>
-
         <form className='category-form' onSubmit={this.handleSubmit}>
           <input
             name='title'

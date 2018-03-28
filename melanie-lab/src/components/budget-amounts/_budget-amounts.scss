@@ -1,0 +1,19 @@
+@import '../../style/main.scss';
+
+.budget-amounts {
+  display: block;
+  height: 40px;
+  padding-top: 15px;
+
+  div {
+    width: 29%;
+    float: right;
+    font-size: 13px;
+    color: $primary-color;
+  }
+
+  span {
+    font-weight: bold;
+    margin-right: 3px;
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-// import './_initial-budget-form.scss';
+import './_initial-budget-form.scss';
 import React, { Component } from 'react';
 
 export default class InitalBudgetForm extends Component {
@@ -25,6 +25,7 @@ export default class InitalBudgetForm extends Component {
   render() {
     return (
       <form className='budget-form' onSubmit={this.handleSubmit}>
+        <label>set your total budget.</label>
         <input
           name='budget'
           type='number'

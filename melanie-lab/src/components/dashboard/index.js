@@ -35,7 +35,8 @@ class DashboardContainer extends Component {
             initial={budget}
           />
           : undefined}
-        
+
+        <h2>create a new category.</h2>
         <CategoryForm
           buttonText='create category'
           placeholderText='create a new category and track your expenses'
