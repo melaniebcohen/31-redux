@@ -1,6 +1,6 @@
 'use strict';
 
-import './_category-form.scss';
+// import './_category-form.scss';
 import React, { Component } from 'react';
 
 export default class CategoryForm extends Component {

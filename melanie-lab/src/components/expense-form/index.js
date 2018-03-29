@@ -1,6 +1,5 @@
 'use strict';
 
-import './_expense-form.scss';
 import React, { Component } from 'react';
 
 export default class ExpenseForm extends Component {

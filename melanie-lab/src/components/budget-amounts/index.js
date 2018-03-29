@@ -1,6 +1,6 @@
 'use strict';
 
-import './_budget-amounts.scss';
+// import './_budget-amounts.scss';
 import React, { Component } from 'react';
 
 export default class BudgetAmounts extends Component {

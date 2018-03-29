@@ -1,18 +1,14 @@
-@import '../../style/main.scss';
-
 .category-form {
-  margin: 0 25px 0px 15px;
-  padding-bottom: 5px;
   display: block;
+  padding: 0 $gutter-page $gutter-sm $gutter-page;
   clear: both;
 
   input {
     width: 60%;
-    margin: 0 0 12px 25px;
+    margin: 0 $gutter-sm 0 0;
   }
 
   button {
-    width: 25%;
-    margin-left: 25px;
+    width: 30%;
   }
 }

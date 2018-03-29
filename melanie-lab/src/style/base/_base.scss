@@ -1,0 +1,30 @@
+body {
+  font: 100% $font;
+}
+
+#root {
+  background: $secondary-color;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+input[type="text"], input[type="number"] {
+  border: $input-border;
+  padding: $input-padding;
+  border-radius: $border-radius;
+  font-family: $font;
+  font-size: $font-small;
+}
+
+button {
+  background: $primary-color;
+  border-radius: $border-radius;
+  padding: $button-padding;
+  color: $secondary-color;
+  font-family: $font;
+  font-size: $font-small;
+  border: none;
+  text-transform: lowercase;
+}

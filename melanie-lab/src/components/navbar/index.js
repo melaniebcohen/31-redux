@@ -1,6 +1,6 @@
 'use strict';
 
-import './_navbar.scss';
+// import './_navbar.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 

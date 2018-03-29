@@ -1,6 +1,6 @@
 'use strict';
 
-import './_expense-item.scss';
+// import './_expense-item.scss';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -10,11 +10,12 @@ import ExpenseForm from '../expense-form';
 
 class ExpenseItem extends Component {
   render() {
-    let { expenses, expenseDelete, expenseUpdate } = this.props;
+    let { expenses, expenseDelete, expenseUpdate, category } = this.props;
+
     let categoryBudget = expenses.reduce((acc, cur) => {
       return acc + cur.price;
     },0);
-    // console.log(categoryBudget);
+    console.log(categoryBudget);
 
     return (
       <ul className='expense-list'>
@@ -22,7 +23,7 @@ class ExpenseItem extends Component {
           <li className='expense-item' key={expense.id}>
             <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
             <p>{expense.title}</p>
-            <h4>${expense.budget}</h4>
+            <h4>${expense.price}</h4>
 
             <ExpenseForm
               expense={expense}

@@ -1,22 +1,19 @@
-@import '../../style/main.scss';
-
 .budget-form {
-  margin: 0 25px 0px 15px;
   display: block;
+  padding: $gutter-sm/2 $gutter-page $gutter-sm $gutter-page;
 
   label {
+    font-size: $font-large/2;
     display: block;
     color: $primary-color;
-    margin: 10px 0 12px 25px;
   }
 
   input {
-    margin: 0 0 12px 25px;
-    width: 60%
+    width: 60%;
+    margin: $gutter-sm/2 $gutter-sm 0 0;
   }
   
   button {
-    width: 25%;
-    margin-left: 25px;
+    width: 30%;
   }
 }

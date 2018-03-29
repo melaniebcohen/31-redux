@@ -1,6 +1,5 @@
 'use strict';
 
-import './_initial-budget-form.scss';
 import React, { Component } from 'react';
 
 export default class InitalBudgetForm extends Component {

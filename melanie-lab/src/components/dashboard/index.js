@@ -1,7 +1,5 @@
 'use strict';
 
-import './_dashboard.scss';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

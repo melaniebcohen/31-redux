@@ -1,6 +1,6 @@
 'use strict';
 
-import './_category-item.scss';
+// import './_category-item.scss';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -17,7 +17,11 @@ class CategoryItem extends Component {
   render() {
     let catId = this.props.category.id;
     let { category, categoryUpdate, categoryDelete, expenseCreate, expenses } = this.props;
-  
+    
+    // DEMO
+    // let currentExpense = this.props.exp[category.id][0] ? this.props.exp[category.id][0] : null;
+    // this.props.expense[category.id]
+
     // if (expenses[category.id].length > 0) {
     //   let categoryBudget = expenses[category.id].reduce((acc, cur) => {
     //     return acc + cur.price;
@@ -61,6 +65,8 @@ class CategoryItem extends Component {
     );
   }
 }
+
+// mapStateToProps - categories, expenses
 
 const mapDispatchToProps = dispatch => ({
   categoryUpdate: category => dispatch(categoryUpdate(category)),

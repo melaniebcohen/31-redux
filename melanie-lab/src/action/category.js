@@ -12,6 +12,7 @@ export const categoryCreate = category => {
 };
 
 export const categoryUpdate = category => ({
+  // category.editing = false ?
   type: 'CATEGORY_UPDATE',
   payload: category,
 });
