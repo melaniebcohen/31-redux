@@ -1,7 +1,3 @@
-/*
-should support an expense prop that will both set the intial form state, and update the state in the hook on componentWillReceiveProps()
-*/
-
 'use strict';
 
 import './_expense-form.scss';
@@ -12,7 +8,7 @@ export default class ExpenseForm extends Component {
     super(props);
     this.state = props.expense ? {...props.expense} : { 
       title: '', 
-      budget: '',
+      price: '',
       categoryId: props.categoryId,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -39,12 +35,12 @@ export default class ExpenseForm extends Component {
     e.preventDefault();
     this.props.onComplete(this.state);
 
-    // if (!this.props.expense) {
-    //   this.setState({
-    //     title: '', 
-    //     budget: '',
-    //   });
-    // }
+    if (!this.props.expense) {
+      this.setState({
+        title: '',
+        price: '',
+      });
+    }
   }
 
   render() {
@@ -56,14 +52,16 @@ export default class ExpenseForm extends Component {
           placeholder={this.props.placeholderText}
           value={this.state.title}
           onChange={this.handleChange}
+          required
         />
 
         <input
-          name='budget'
+          name='price'
           type='number'
           placeholder={this.props.placeholderBudget}
-          value={this.state.budget}
+          value={this.state.price}
           onChange={this.handleChange}
+          required
         />
 
         <button className='expense-form-button' type='submit'>{this.props.buttonText}</button>

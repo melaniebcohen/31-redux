@@ -1,9 +1,6 @@
 'use strict';
 
-/*
-should have a button that will delete the expense from the app state (onClick)
-should display the name and price of the component
-*/
+import './_expense-item.scss';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -14,13 +11,18 @@ import ExpenseForm from '../expense-form';
 class ExpenseItem extends Component {
   render() {
     let { expenses, expenseDelete, expenseUpdate } = this.props;
+    let categoryBudget = expenses.reduce((acc, cur) => {
+      return acc + cur.price;
+    },0);
+    // console.log(categoryBudget);
+
     return (
       <ul className='expense-list'>
         { expenses.map(expense => 
-          <li className='expense-item' key={expense}>
-            <h3>{expense.title}</h3>
-            <h3>${expense.budget}</h3>
+          <li className='expense-item' key={expense.id}>
             <button className='delete-button' onClick={() => expenseDelete(expense)}>X</button>
+            <p>{expense.title}</p>
+            <h4>${expense.budget}</h4>
 
             <ExpenseForm
               expense={expense}

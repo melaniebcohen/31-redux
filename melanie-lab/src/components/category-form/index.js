@@ -28,7 +28,7 @@ export default class CategoryForm extends Component {
     this.props.onComplete(this.state);
 
     if (!this.props.category) {
-      this.setState({ title: '' });
+      this.setState({ title: '', budget: '' });
     }
   }
 

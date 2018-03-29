@@ -17,21 +17,31 @@ class CategoryItem extends Component {
   render() {
     let catId = this.props.category.id;
     let { category, categoryUpdate, categoryDelete, expenseCreate, expenses } = this.props;
+  
+    // if (expenses[category.id].length > 0) {
+    //   let categoryBudget = expenses[category.id].reduce((acc, cur) => {
+    //     return acc + cur.price;
+    //   }, 0);
+    // }
 
     return (
       <div className='category-item'>
         <div className='category-item-content'>
           <h3>{category.title}</h3>
-          <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
+          <p><span>total:</span>{category.budget}</p>
         </div>
+        
+        <div className='category-item-edit'>
+          <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
 
-        <CategoryForm
-          category={category}
-          placeholderText={this.props.title}
-          placeholderBudget={'$' + category.budget}
-          buttonText='update category'
-          onComplete={categoryUpdate}
-        />
+          <CategoryForm
+            category={category}
+            placeholderText={this.props.title}
+            placeholderBudget={'$' + category.budget}
+            buttonText='update'
+            onComplete={categoryUpdate}
+          />
+        </div>
 
         <ExpenseForm 
           categoryId={category.id}
@@ -41,33 +51,16 @@ class CategoryItem extends Component {
           onComplete={expenseCreate}
         />
         
-        {/* RENDER EXPENSE ITEM HERE */}
         { expenses[category.id].length ? 
           <ExpenseItem
             expenses={expenses[category.id]}
           />
           : undefined
         }
-        {/* {this.props.expenses[catId].map(item =>
-          <div key={item.id}>
-            <ExpenseItem 
-              expense={item}
-            />
-          </div>
-        )} */}
-
       </div>
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   return { 
-//     budget: state.budget,
-//     categories: state.categories,
-//     expenses: state.expenses,
-//   };
-// };
 
 const mapDispatchToProps = dispatch => ({
   categoryUpdate: category => dispatch(categoryUpdate(category)),

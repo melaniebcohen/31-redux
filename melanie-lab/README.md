@@ -41,4 +41,4 @@
 ```
 
 ## Redux
-This app also uses `Redux` with the following reducers: `CATEGORY_CREATE`, `CATEGORY_UPDATE`, and `CATEGORY_DELETE`. Action creators are built for each interaction.
+This app also uses `Redux` with the following reducers: `CATEGORY_CREATE`, `CATEGORY_UPDATE`, and `CATEGORY_DESTROY`. Action creators are built for each interaction.

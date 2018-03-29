@@ -1,0 +1,17 @@
+@import '../../style/main.scss';
+
+.expense-item {
+  margin-top: 20px;
+
+  input {
+    float: left;
+  }
+
+  .delete-button {
+    background: none;
+    color: $primary-color;
+    float: right;
+    margin: 0;
+    padding: 0;
+  }
+}

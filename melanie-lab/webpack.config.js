@@ -43,6 +43,18 @@ module.exports = {
       }, {
         test: /\.scss$/,
         loader: 'style-loader!css-loader!sass-loader',
+      }, {
+        test: /\.(jpg|jpeg|gif|png|tiff|svg|ico)$/,
+        exclude: /\.glyph.svg/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: 'image/[name].[ext]',
+              limit: 2500,
+            },
+          },
+        ],
       },
     ],
   },

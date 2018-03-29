@@ -6,7 +6,6 @@ const validateExpense = store => next => action => {
   if (isExpense) {
     try {
       const expense = action.payload;
-      console.log('validate-expense expense payload', expense);
 
       const notValidated = !expense.id || !expense.title || !expense.categoryId;
 

@@ -1,7 +1,10 @@
 @import '../../style/main.scss';
 
 .expense-form {
-  display: block !important;
+  clear: both;
   margin-top: 20px;
-  border: 1px #999 dashed;
+
+  input {
+    float: left;
+  }
 }

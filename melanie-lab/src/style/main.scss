@@ -14,11 +14,16 @@ body {
 #root {
   background: $secondary-color;
 }
+
 input {
   border: 1.5px $primary-color solid;
   padding: 10px;
   border-radius: 4px;
   font-family: $font-stack;
+}
+
+a, button {
+  cursor: pointer;
 }
 
 button {
