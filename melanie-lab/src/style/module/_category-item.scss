@@ -1,19 +1,26 @@
 .category-item {
-  margin: 20px 40px 0 40px;
-  padding: 20px 0 20px 0;
+  margin: 0 $gutter-page 0 $gutter-page;
+  padding: $gutter-sm 0 $gutter-sm 0;
   border-top: 1.5px solid $tertiary-color;
-
+  color: $primary-color;
+  
   .category-item-content {
     display: inline-block;
+    border: 1px orange dashed;
 
     h3 {
-      color: $primary-color;
       display: inline;
-      padding-right: 10px;
+      padding-right: 2vw;
+      font-size: $font-large/2;
     }
 
     p {
+      font-size: $font-large/3;
       display: inline;
+    }
+
+    span {
+      font-weight: bold;
     }
   }
 
@@ -21,6 +28,7 @@
     float: right;
     width: 40%;
     text-align: right;
+    border: 1px blue dashed;
 
     .delete-button {
       background: none;

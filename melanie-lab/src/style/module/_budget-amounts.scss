@@ -1,12 +1,12 @@
 .budget-amounts {
   display: block;
   height: 40px;
-  padding-top: 15px;
+  padding: $gutter-sm $gutter-page 0 $gutter-page;
 
   div {
     width: 29%;
     float: right;
-    font-size: 13px;
+    font-size: $font-large/3;
     color: $primary-color;
   }
 

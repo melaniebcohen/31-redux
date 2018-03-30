@@ -2,10 +2,10 @@
 
 import React, { Component } from 'react';
 
-export default class InitalBudgetForm extends Component {
+export default class BudgetForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { budget: '' },
+    this.state = { budget: '', remaining: 0 },
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }

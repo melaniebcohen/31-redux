@@ -6,11 +6,11 @@
 @import './layout/content';
 @import './layout/footer';
 
-@import '../components/navbar/navbar';
-@import '../components/dashboard/dashboard';
-@import '../components/initial-budget-form/initial-budget-form';
-// @import '../components/budget-amounts/budget-amounts';
-@import '../components/category-form/category-form';
-// @import '../components/category-item/category-item';
-// @import '../components/expense-form/expense-form';
-// @import '../components/expense-item/expense-item';
+@import './module/navbar';
+@import './module/dashboard';
+@import './module/initial-budget-form';
+@import './module/budget-amounts';
+@import './module/category-form';
+@import './module/category-item';
+@import './module/expense-form';
+@import './module/expense-item';

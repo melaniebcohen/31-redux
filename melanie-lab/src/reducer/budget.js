@@ -7,7 +7,11 @@ export default (state=initialState, action) => {
 
   switch(type) {
   case 'BUDGET_CREATE':
-    return parseInt(payload.budget);
+    payload.budget = parseInt(payload.budget);
+    payload.remaining = payload.budget;
+    return payload;
+  case 'BUDGET_UPDATE':
+    return payload;
   default:
     return state;
   }

@@ -1,12 +1,11 @@
 'use strict';
 
-// import './_category-item.scss';
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { categoryDelete, categoryUpdate } from '../../action/category.js';
 import { expenseCreate } from '../../action/expense.js';
+import { budgetUpdate } from '../../action/budget.js';
 import { renderIf } from '../../lib/util.js';
 
 import CategoryForm from '../category-form';
@@ -14,20 +13,30 @@ import ExpenseForm from '../expense-form';
 import ExpenseItem from '../expense-item';
 
 class CategoryItem extends Component {
+  componentWillReceiveProps(nextProps) {
+    let { category, categories, categoryUpdate, categoryDelete, expenseCreate, expenses } = this.props;
+
+    let expensesTotal = 0;
+
+    if (nextProps.expenses[category.id] && nextProps.expenses[category.id].length) {
+      expensesTotal = nextProps.expenses[category.id].map(expense => {
+        return expense.price;
+      }).reduce((acc, cur) => {
+        return acc + cur;
+      });
+
+      if (typeof expensesTotal === 'number') {
+        category.budget = expensesTotal;
+      } else {
+        category.budget = expensesTotal.price;
+      }
+    }
+  }
+
   render() {
     let catId = this.props.category.id;
-    let { category, categoryUpdate, categoryDelete, expenseCreate, expenses } = this.props;
-    
-    // DEMO
-    // let currentExpense = this.props.exp[category.id][0] ? this.props.exp[category.id][0] : null;
-    // this.props.expense[category.id]
-
-    // if (expenses[category.id].length > 0) {
-    //   let categoryBudget = expenses[category.id].reduce((acc, cur) => {
-    //     return acc + cur.price;
-    //   }, 0);
-    // }
-
+    let { category, categories, categoryUpdate, categoryDelete, expenseCreate, expenses } = this.props;
+        
     return (
       <div className='category-item'>
         <div className='category-item-content'>
@@ -66,12 +75,17 @@ class CategoryItem extends Component {
   }
 }
 
-// mapStateToProps - categories, expenses
+const mapStateToProps = state => {
+  return { 
+    budget: state.budget,
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
+  budgetUpdate: budget => dispatch(budgetUpdate(budget)),
   categoryUpdate: category => dispatch(categoryUpdate(category)),
   categoryDelete: category => dispatch(categoryDelete(category)),
   expenseCreate: expense => dispatch(expenseCreate(expense)),
 });
 
-export default connect(null, mapDispatchToProps)(CategoryItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryItem);
