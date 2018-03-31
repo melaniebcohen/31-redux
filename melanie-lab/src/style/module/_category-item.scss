@@ -61,4 +61,11 @@
       font-size: $font-large/2;
     }
   }
+
+  .expenses {
+    background: #efefef;
+    margin-top: $gutter-sm/2;
+    border: $input-border;
+    border-radius: $border-radius;
+  }
 }

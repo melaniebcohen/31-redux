@@ -56,20 +56,22 @@ class CategoryItem extends Component {
           <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
         </div>
 
-        <ExpenseForm 
-          categoryId={category.id}
-          placeholderText='expense name...'
-          placeholderBudget='$ expense budget...'
-          buttonText='add expense'
-          onComplete={expenseCreate}
-        />
-        
-        { expenses[category.id].length ? 
-          <ExpenseItem
-            expenses={expenses[category.id]}
+        <div class="expenses">
+          <ExpenseForm 
+            categoryId={category.id}
+            placeholderText='expense name...'
+            placeholderBudget='$ expense budget...'
+            buttonText='add expense'
+            onComplete={expenseCreate}
           />
-          : undefined
-        }
+          
+          { expenses[category.id].length ? 
+            <ExpenseItem
+              expenses={expenses[category.id]}
+            />
+            : undefined
+          }
+        </div>
       </div>
     );
   }
