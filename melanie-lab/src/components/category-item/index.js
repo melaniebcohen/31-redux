@@ -45,8 +45,6 @@ class CategoryItem extends Component {
         </div>
         
         <div className='category-item-edit'>
-          <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
-
           <CategoryForm
             category={category}
             placeholderText={this.props.title}
@@ -54,6 +52,8 @@ class CategoryItem extends Component {
             buttonText='update'
             onComplete={categoryUpdate}
           />
+
+          <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
         </div>
 
         <ExpenseForm 

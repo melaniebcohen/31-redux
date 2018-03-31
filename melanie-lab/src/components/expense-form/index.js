@@ -45,25 +45,28 @@ export default class ExpenseForm extends Component {
   render() {
     return (
       <form className='expense-form' onSubmit={this.handleSubmit}>
-        <input
-          name='title'
-          type='text'
-          placeholder={this.props.placeholderText}
-          value={this.state.title}
-          onChange={this.handleChange}
-          required
-        />
+        <div>
+          <label>create a new expense</label>
+          <input
+            name='title'
+            type='text'
+            placeholder={this.props.placeholderText}
+            value={this.state.title}
+            onChange={this.handleChange}
+            required
+          />
 
-        <input
-          name='price'
-          type='number'
-          placeholder={this.props.placeholderBudget}
-          value={this.state.price}
-          onChange={this.handleChange}
-          required
-        />
+          <input
+            name='price'
+            type='number'
+            placeholder={this.props.placeholderBudget}
+            value={this.state.price}
+            onChange={this.handleChange}
+            required
+          />
 
-        <button className='expense-form-button' type='submit'>{this.props.buttonText}</button>
+          <button className='expense-form-button' type='submit'>{this.props.buttonText}</button>
+        </div>
       </form>
     );
   }
