@@ -5,44 +5,18 @@ import { budgetUpdate } from '../../action/budget.js';
 import { connect } from 'react-redux';
 
 class BudgetAmounts extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  shouldComponentUpdate(props) {
-    console.log(props.budget);
-
-    if (props.categories && props.categories.length) {
-      let categoryBudgetTotal = props.categories.map(category => {
-        return category.budget;
-      }).reduce((acc, cur) => {
-        return acc + cur;
-      });
-
-      let newRemaining = props.budget.remaining - categoryBudgetTotal;
-
-      if (newRemaining <= 0 && props.budget.remaining === 0) {
-        return false;
-      } else if (newRemaining <= 0) {
-        let newBudget = { remaining: 0 };
-        this.props.budgetUpdate(newBudget);
-        return true;
-      } else {
-        let newBudget = { remaining: newRemaining };
-        this.props.budgetUpdate(newBudget);
-        return true;
-      }
-    } else {
-      return false;
-    }
-  }
   
   render() {
     return (
       <section className='budget-amounts'>
         <div>
           <p><span>initial:</span> ${this.props.budget.budget}</p>
-          <p><span>remaining:</span> ${this.props.budget.remaining}</p>
+
+          {this.props.remaining ? 
+            <p><span>remaining:</span> ${this.props.remaining}</p>
+            : 
+            <p><span>remaining:</span> ${this.props.budget.budget}</p>
+          }
         </div>
       </section>
     );
@@ -50,8 +24,26 @@ class BudgetAmounts extends Component {
 }
 
 const mapStateToProps = state => {
+  let calculateTotal = state => {
+    if (state.expenses) {
+      let expensesTotal = 0;
+
+      for (let i = 0; i < Object.keys(state.expenses).length; i++) {
+        let expCategory = Object.keys(state.expenses)[i];
+        let expensesInCat = state.expenses[expCategory];
+
+        if (expensesInCat.length > 0) {
+          for (let j = 0; j < expensesInCat.length; j++) {
+            expensesTotal += state.expenses[expCategory][j].price;
+          }
+        }
+      }
+      return expensesTotal;
+    }
+  };
+
   return { 
-    budget: state.budget,
+    remaining: state.budget.remaining - calculateTotal(state),
   };
 };
 

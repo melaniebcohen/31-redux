@@ -56,7 +56,7 @@ class CategoryItem extends Component {
           <button className='delete-button' onClick={() => categoryDelete(category)}>X</button>
         </div>
 
-        <div class="expenses">
+        <div className="expenses">
           <ExpenseForm 
             categoryId={category.id}
             placeholderText='expense name...'

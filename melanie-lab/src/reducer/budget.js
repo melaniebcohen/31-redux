@@ -10,8 +10,6 @@ export default (state=initialState, action) => {
     payload.budget = parseInt(payload.budget);
     payload.remaining = payload.budget;
     return payload;
-  case 'BUDGET_UPDATE':
-    return payload;
   default:
     return state;
   }
