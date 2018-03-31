@@ -41,7 +41,7 @@ class CategoryItem extends Component {
       <div className='category-item'>
         <div className='category-item-content'>
           <h3>{category.title}</h3>
-          <p><span>total:</span>{category.budget}</p>
+          <p><span>total:</span> ${category.budget}</p>
         </div>
         
         <div className='category-item-edit'>

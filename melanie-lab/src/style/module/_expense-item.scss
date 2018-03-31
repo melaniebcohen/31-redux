@@ -1,5 +1,5 @@
 .expense-list {
-  display: inline-block;
+  display: inline;
 
   li.expense-item {
     background: $secondary-color;
@@ -7,8 +7,12 @@
     border-radius: $border-radius;
     border-color: $tertiary-color;
     display: inline-block;
-    margin: $gutter-sm/2 $gutter-sm/2;
-    padding: 0 $gutter-sm/2 $gutter-sm/5 $gutter-sm/2;
+    margin: $gutter-sm/3 $gutter-sm/2;
+    padding: 0 $gutter-sm/5 $gutter-sm/5 $gutter-sm/6;
+  }
+
+  li.expense-item:first-child {
+    margin: $gutter-sm/2 $gutter-sm/2 $gutter-sm/2 $gutter-sm;
   }
 
   p {
@@ -37,7 +41,7 @@
     width: 100%;
     background: none;
     color: $primary-color;
-    margin: 0;
+    margin: 0 1vw 0 0;
     padding: 0;
     font-size: $font-large/2;
   }
