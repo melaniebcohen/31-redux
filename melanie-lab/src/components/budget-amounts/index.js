@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { budgetUpdate } from '../../action/budget.js';
+// import { budgetUpdate } from '../../action/budget.js';
 import { connect } from 'react-redux';
 
 class BudgetAmounts extends Component {
@@ -24,6 +24,7 @@ class BudgetAmounts extends Component {
 }
 
 const mapStateToProps = state => {
+  // this isn't updating the state's remaining value, but it's working for now....
   let calculateTotal = state => {
     if (state.expenses) {
       let expensesTotal = 0;
@@ -47,8 +48,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  budgetUpdate: budget => dispatch(budgetUpdate(budget)),
-});
+// const mapDispatchToProps = dispatch => ({
+//   budgetUpdate: budget => dispatch(budgetUpdate(budget)),
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BudgetAmounts);
+export default connect(mapStateToProps, null)(BudgetAmounts);

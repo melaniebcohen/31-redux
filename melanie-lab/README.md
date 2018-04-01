@@ -1,5 +1,10 @@
-![cf](https://i.imgur.com/7v5ASc8.png) Lab 31: Redux - Budget Tracker
-======
+# ![cf](https://i.imgur.com/7v5ASc8.png)  Budget Tracker App
+
+## Labs
+Lab 31: Redux  
+Lab 32 - Combining Reducers  
+Lab 33 - Redux Middleware  
+Lab 34 - UI & Testing  
 
 ## Configuration
 * **README.md**
@@ -19,7 +24,10 @@
 * **src/reducer**
 * **src/lib**
 * **src/style**
-* **src/style/main.scss**
+* **src/style/base**
+* **src/style/layout**
+* **src/style/lib**
+* **src/style/module** - contains SASS partials for all components
 
 ## Installation
 1. To install this application, download the files from this repository
@@ -30,15 +38,28 @@
 ## Application Details
 * This app uses `React` and is comprised of the following components:
 
-```html
+```
 <App />
   <Provider />
     <BrowserRouter />
       <Route />
         <Dashboard />
+          <NavBar />
+          <BudgetForm />
+          <BudgetAmounts />
           <CategoryForm />
             <CategoryItem />
+              <CategoryForm />
+              <ExpenseForm />
+              <ExpenseItem />
+                <ExpenseForm />
 ```
 
 ## Redux
-This app also uses `Redux` with the following reducers: `CATEGORY_CREATE`, `CATEGORY_UPDATE`, and `CATEGORY_DESTROY`. Action creators are built for each interaction.
+This app also uses `Redux` with the following reducers. Action creators are built for each interaction.
+
+| BUDGET         | CATEGORY          | EXPENSE          |
+| -------------- |:-----------------:| ----------------:|
+| `BUDGET_CREATE`| `CATEGORY_CREATE` | `EXEPNSE_CREATE` |
+|                | `CATEGORY_UPDATE` | `EXPENSE_UPDATE` |
+|                | `CATEGORY_DESTROY`| `EXPENSE_DELETE` |

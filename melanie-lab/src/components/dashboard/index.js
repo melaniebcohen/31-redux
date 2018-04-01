@@ -32,9 +32,6 @@ class DashboardContainer extends Component {
           <BudgetAmounts 
             budget={budget}
             categories={categories}
-            // buttonText='set budget'
-            // placeholderText='set total budget'
-            // onComplete={budgetCreate}
           />
           : undefined}
 
