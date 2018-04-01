@@ -1,0 +1,17 @@
+.budget-amounts {
+  display: block;
+  height: 40px;
+  padding: $gutter-sm $gutter-page 0 $gutter-page;
+
+  div {
+    width: 29%;
+    float: right;
+    font-size: $font-large/3;
+    color: $primary-color;
+  }
+
+  span {
+    font-weight: bold;
+    margin-right: 3px;
+  }
+}

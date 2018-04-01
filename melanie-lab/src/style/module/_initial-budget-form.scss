@@ -1,0 +1,19 @@
+.budget-form {
+  display: block;
+  padding: $gutter-sm $gutter-page $gutter-sm $gutter-page;
+
+  label {
+    font-size: $font-large/2;
+    display: block;
+    color: $primary-color;
+  }
+
+  input {
+    width: 60%;
+    margin: $gutter-sm/2 $gutter-sm 0 0;
+  }
+  
+  button {
+    width: 30%;
+  }
+}

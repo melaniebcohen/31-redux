@@ -1,0 +1,27 @@
+.expense-form {
+  display: inline-block;
+
+  div {
+    padding: $gutter-sm/2 $gutter-lg/3 $gutter-sm $gutter-lg/2;
+    display: inline-block;
+  }
+
+  label {
+    color: $primary-color;
+    display: block;
+    font-size: $font-large/2.75;
+    padding-bottom: $gutter-lg*1.5;
+    padding-top: $gutter-sm/3;
+  }
+  
+  input {
+    border-color: $primary-color;
+    padding: $input-padding-sm;
+    display: block;
+    margin: $gutter-sm/2 0;
+  }  
+
+  button {
+    padding: $button-padding;
+  }
+}

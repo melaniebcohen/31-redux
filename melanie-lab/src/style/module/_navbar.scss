@@ -1,0 +1,31 @@
+header {
+  background: $primary-color;
+  color: $tertiary-color;
+  padding: 0 $gutter-page $gutter-sm $gutter-page;
+  height: 5vw;
+
+  h1 {
+    font-size: $font-large/1.5;
+    padding-top: $gutter-sm/1.5;
+    width: 65%;
+    float: left;
+  }
+
+  li {
+    padding-top: $gutter-sm/1.15;
+    font-size: $font-large/2;
+    float: right;
+  }
+
+  a {
+    transition-duration: 500ms;
+  }
+
+  a:link, a:active, a:visited {
+    color: $tertiary-color;
+  }
+
+  a:hover {
+    color: $secondary-color;
+  }
+}

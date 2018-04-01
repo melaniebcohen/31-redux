@@ -1,0 +1,48 @@
+.expense-list {
+  display: inline;
+
+  li.expense-item {
+    background: $secondary-color;
+    border: $input-border;
+    border-radius: $border-radius;
+    border-color: $tertiary-color;
+    display: inline-block;
+    margin: $gutter-sm/3 $gutter-sm/2;
+    padding: 0 $gutter-sm/5 $gutter-sm/5 $gutter-sm/6;
+  }
+
+  li.expense-item:first-child {
+    margin: $gutter-sm/2 $gutter-sm/2 $gutter-sm/2 $gutter-sm;
+  }
+
+  p {
+    padding: $gutter-sm/2;
+    padding-bottom: 0;
+    font-size: $font-large/2.75;
+  }
+
+  h4 {
+    padding: 0 0 0 $gutter-sm/2;
+    font-size: $font-large/2;
+  }
+
+  label {
+    display: none;
+  }
+
+  div {
+    padding: $gutter-sm/3;
+    padding-top: 0;
+  }
+  
+  .delete-button {
+    text-align: right;
+    float: right;
+    width: 100%;
+    background: none;
+    color: $primary-color;
+    margin: 0 1vw 0 0;
+    padding: 0;
+    font-size: $font-large/2;
+  }
+}

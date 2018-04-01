@@ -1,0 +1,8 @@
+.dashboard-container {
+  h2 {
+    display: block;
+    font-size: $font-large/2;
+    color: $primary-color;
+    padding: 0 $gutter-page $gutter-sm/2 $gutter-page;
+  }
+}

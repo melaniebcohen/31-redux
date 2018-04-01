@@ -1,0 +1,14 @@
+.category-form {
+  display: block;
+  padding: 0 $gutter-page $gutter-sm $gutter-page;
+  clear: both;
+
+  input {
+    width: 60%;
+    margin: 0 $gutter-sm 0 0;
+  }
+
+  button {
+    width: 30%;
+  }
+}
